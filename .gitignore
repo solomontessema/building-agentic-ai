@@ -1,0 +1,30 @@
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtual environment
+agentic_env/
+
+# Environment variables
+agentic-assistant/.env
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE/editor configs
+.vscode/
+.idea/
+
+# Logs and temp files
+*.log
+*.tmp
+
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints/
+
+# Test and coverage
+.tox/
+.coverage
+.cache/
