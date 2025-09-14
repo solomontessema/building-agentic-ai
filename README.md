@@ -13,4 +13,4 @@ Whether you're automating workflows, designing GPT-powered assistants, or launch
 
 ## Project Structure
 
-The project is divided into 10 incremental steps, each tagged for easy navigation:
+The project is divided into several incremental steps, each tagged for easy navigation:
