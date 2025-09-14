@@ -7,7 +7,7 @@ from tools.search_tool import search_tool
 
 load_dotenv()
 
-# Load the weather prompt template
+# Load prompt template
 with open("prompts/weather_prompt.txt") as f:
     template = f.read()
 
@@ -23,5 +23,6 @@ agent = initialize_agent(
     llm=llm,
     agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
     verbose=True,
-    agent_kwargs={"prompt": weather_prompt}  # inject custom prompt
+    max_iterations=3,   # 👈 limit to 3 reasoning loops
+    agent_kwargs={"prompt": weather_prompt}
 )
