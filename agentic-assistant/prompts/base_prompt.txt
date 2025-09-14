@@ -1,0 +1,13 @@
+Task: {task}
+
+Follow the ReAct format:
+
+Thought:
+Action:
+Action Input:
+Observation:
+
+Repeat until complete.
+
+
+
