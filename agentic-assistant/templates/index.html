@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vacation Planner</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+
+<body>
+  <div class="card">
+    <h1 id="title">Vacation Planner</h1>
+    <img src="{{ url_for('static', filename='img/beach.jpg') }}" alt="Beach" class="vacation-img">
+    <p id="description">Enter your vacation details below:</p>
+    <form>
+      <label for="days">Number of Days:</label>
+      <input type="number" id="days" name="days"><br><br>
+      <label for="budget">Total Budget ($):</label>
+      <input type="number" id="budget" name="budget"><br><br>
+      <button type="button" onclick="calculateBudget()">Calculate</button>
+    </form>
+    <p id="result"></p>
+    <img src="{{ url_for('static', filename='img/mountain.jpg') }}" alt="Mountain" class="vacation-img">
+  </div>
+
+
+  {% if response %}
+    <!-- 💬 Chat Modal with Response -->
+    <div id="chatModal" style="position:fixed;bottom:20px;right:20px;width:300px;height:400px;background:#fff;border:1px solid #ccc;border-radius:8px;box-shadow:0 0 10px rgba(0,0,0,0.2);z-index:1000;display:flex;flex-direction:column;font-family:sans-serif;">
+      <div style="background:#007BFF;color:white;padding:10px;border-top-left-radius:8px;border-top-right-radius:8px;">
+        <strong>Agentic Chat</strong>
+        <button onclick="document.getElementById('chatModal').style.display='none'" style="float:right;background:none;border:none;color:white;font-size:16px;">×</button>
+      </div>
+      <div id="chatBody" style="flex:1;padding:10px;overflow-y:auto;font-size:14px;">
+        <div><strong>Agent:</strong> {{ response }}</div>
+      </div>
+      <div style="padding:10px;border-top:1px solid #ccc;">
+        <form method="POST">
+          <input type="text" name="query" placeholder="Ask me anything..." style="width:100%;padding:6px;">
+        </form>
+      </div>
+    </div>
+  {% else %}
+    <!-- 💬 Chat Launcher Button -->
+    <div id="chatLauncher" style="position:fixed;bottom:20px;right:20px;">
+      <form method="POST">
+        <input type="hidden" name="query" value="Hi">
+        <button type="submit" style="padding:10px 20px;background:#007BFF;color:white;border:none;border-radius:8px;">💬 Chat</button>
+      </form>
+    </div>
+  {% endif %}
+  <script src="/script.js"></script>
+</body>
+
+</html>
